@@ -6,6 +6,7 @@ const CurriculumSchema = new Schema({
     nombre: {type:String,required:true},
     carrera: {type:String,required:true},
     email: {type:String,required:true},
+    password:{type:String,required:true},
     experiencia: {type:String,required:true},
     educacion: {type:String,required:true},
     telefono: {type:Number,required:true},
