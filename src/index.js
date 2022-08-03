@@ -13,7 +13,7 @@ app.use(express.json());
 
 
 //routes
-app.use('/generador-cv/cv' ,require('./routes/Routes'))
+app.use('/usuarios' ,require('./routes/Routes'))
 
 //static files
 

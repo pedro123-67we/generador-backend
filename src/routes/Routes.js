@@ -1,21 +1,28 @@
+const { Router } = require('express');
 const express=require('express');
 const router = express.Router();
 
 const Curriculum = require('../models/model')
 
 router.get('/', async (req,res) =>{
-    const curriculum = await Curriculum.find()
-    console.log(curriculum)
-    res.json(curriculum)
+    const curriculums = await Curriculum.find()
+    console.log(curriculums)
+    res.json(curriculums)
+});
+
+router.get('/:id', async (req,res)=>{
+    const curriculum = await Curriculum.findById(req.params.id);
+    res.json(curriculum);
 });
 
 router.post('/', async (req,res)=>{
-    const {nombre,carrera,email,experiencia,educacion,telefono,
+    const {nombre,carrera,email,password,experiencia,educacion,telefono,
     descripcion,redes} = req.body;
     const curriculum = new Curriculum ({
         nombre,
         carrera,
         email,
+        password,
         experiencia,
         educacion,
         telefono,
@@ -26,12 +33,13 @@ router.post('/', async (req,res)=>{
 });
 
 router.put('/:id', async (req,res)=>{
-    const {nombre,carrera,email,experiencia,educacion,telefono,
+    const {nombre,carrera,email,password,experiencia,educacion,telefono,
         descripcion,redes} = req.body;
         const newCurriculum ={
             nombre,
             carrera,
             email,
+            password,
             experiencia,
             educacion,
             telefono,
@@ -39,6 +47,11 @@ router.put('/:id', async (req,res)=>{
             redes};
             await Curriculum.findByIdAndUpdate(req.params.id,newCurriculum)
             res.json({status: 'curriculum actualizado'})
+});
+
+router.delete('/:id', async (req,res)=>{
+    await Curriculum.findByIdAndRemove(req.params.id)
+    res.json({status:"curriculum eliminado"})
 });
 
 module.exports = router;
