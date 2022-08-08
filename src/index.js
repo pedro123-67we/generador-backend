@@ -1,3 +1,4 @@
+
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
@@ -20,6 +21,8 @@ var corsOptions = {
   }
   }}
   const {mongoose} = require('./database');
+  const uri = process.env.URI
+  const PORT = process.env.PORT
 //config
 
 app.set('PORT', process.env.PORT || 4000 );
