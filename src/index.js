@@ -9,7 +9,7 @@ const app = express();
 
 app.use(cors())
 
-var witheList = ['http://localhost:3000']
+var witheList = ['https://generador-cv.herokuapp.com/']
 var corsOptions = {
   origin: function(origin,callcack) {
     if(witheList.indexOF(origin)===-1){
