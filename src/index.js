@@ -19,16 +19,10 @@ var corsOptions = {
   callcack(new Error('not allowed by cors'))
   }
   }}
-
-
-
-
-
-
-const {mongoose} = require('./database');
-
+  const {mongoose} = require('./database');
 //config
-app.set('port', process.env.Port || 4000 );
+
+app.set('PORT', process.env.PORT || 4000 );
 //midelwares
 app.use(morgan('dev'));
 app.use(express.json());
@@ -44,6 +38,6 @@ app.use('/usuarios' ,require('./routes/Routes'))
 
 app.use(express.static(path.join(__dirname,'public')))
 //start server
-app.listen (app.get('port'), () =>{
-    console.log(`Servidor en puerto ${app.get('port')}`);
+app.listen (app.get('PORT'), () =>{
+    console.log(`Servidor en puerto ${app.get('PORT')}`);
 });
