@@ -11,6 +11,7 @@ router.get('/', async (req,res) =>{
     res.json(curriculums)
 });
 
+
 router.get('/:id', async (req,res)=>{
     const curriculum = await Curriculum.findById(req.params.id);
     res.json(curriculum);
