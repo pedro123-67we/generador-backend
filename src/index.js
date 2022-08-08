@@ -21,8 +21,7 @@ var corsOptions = {
   }
   }}
   const {mongoose} = require('./database');
-  const uri = process.env.URI
-  const PORT = process.env.PORT
+
 //config
 
 app.set('PORT', process.env.PORT || 4000 );
@@ -30,7 +29,12 @@ app.set('PORT', process.env.PORT || 4000 );
 app.use(morgan('dev'));
 app.use(express.json());
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 
+const DB_URI = process.env.DB_URI
+const PORT = process.env.PORT
 
 
 
