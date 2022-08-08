@@ -1,7 +1,6 @@
 const mongoose= require('mongoose');
 const {Schema} = mongoose;
 
-
 const CurriculumSchema = new Schema({
     nombre: {type:String,required:false},
     apellidos: {type:String,required:false},

@@ -4,6 +4,7 @@ const router = express.Router();
 
 const Curriculum = require('../models/model')
 
+
 router.get('/', async (req,res) =>{
     const curriculums = await Curriculum.find()
     console.log(curriculums)
