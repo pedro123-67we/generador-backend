@@ -16,10 +16,11 @@ router.get('/:id', async (req,res)=>{
 });
 
 router.post('/', async (req,res)=>{
-    const {nombre,carrera,email,password,experiencia,educacion,telefono,
+    const {nombre,apellidos,carrera,email,password,experiencia,educacion,telefono,
     descripcion,redes} = req.body;
     const curriculum = new Curriculum ({
         nombre,
+        apellidos,
         carrera,
         email,
         password,
@@ -33,10 +34,11 @@ router.post('/', async (req,res)=>{
 });
 
 router.put('/:id', async (req,res)=>{
-    const {nombre,carrera,email,password,experiencia,educacion,telefono,
+    const {nombre,apellidos,carrera,email,password,experiencia,educacion,telefono,
         descripcion,redes} = req.body;
         const newCurriculum ={
             nombre,
+            apellidos,
             carrera,
             email,
             password,

@@ -1,15 +1,38 @@
 const express = require('express');
 const morgan = require('morgan');
-const path = require('path')
+const cors = require('cors');
+const path = require('path');
 const app = express();
+
+
+
+
+app.use(cors())
+
+var witheList = ['http://localhost:3000']
+var corsOptions = {
+  origin: function(origin,callcack) {
+    if(witheList.indexOF(origin)===-1){
+    callcack(null, true);
+  }else{
+  callcack(new Error('not allowed by cors'))
+  }
+  }}
+
+
+
+
 
 const {mongoose} = require('./database');
 
 //config
-app.set('port', process.env.Port || 3000 );
+app.set('port', process.env.Port || 4000 );
 //midelwares
 app.use(morgan('dev'));
 app.use(express.json());
+
+
+
 
 
 //routes
